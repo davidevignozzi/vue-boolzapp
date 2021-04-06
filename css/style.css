@@ -1,0 +1,268 @@
+/* common */
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+#app{
+    position: relative;
+    display: flex;
+    height: 100vh;
+}
+.page-container{
+    margin: auto;
+    display: flex;
+    width: 80%;
+    min-width: 950px;
+    height: 95%;
+    overflow: hidden;
+    background-color: white;
+    z-index: 3;
+}
+/* end common */
+
+/* background */
+.background-green{
+    position: absolute;
+    width: 100vw;
+    height: 15%;
+    background: #009688;
+    z-index: 2;
+}
+.background-grey{
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background: #DBDBD2;
+    z-index: 1;
+}
+/* end background */
+
+
+/* left part */
+.left-part{
+    height: 100%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+/* profile bar */
+.profile-bar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile-bar img{
+    width: 75px;
+    border-radius: 999px;
+    padding: 10px;
+    cursor: pointer;
+}
+.profile-bar .user{
+    display: flex;
+    align-items: center;
+}
+.profile-bar .icon-container{
+    font-size: 24px;
+    margin-right: 15px;
+}
+.profile-bar .icon-container i{
+    padding-left: 10px;
+    cursor: pointer;
+    color: #B1B1B1;
+}
+/* end profile bar */
+
+/* notification */
+.notification {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    background: #8EDAFC;
+}
+.notification .icon-container{
+    font-size: 26px;
+    background-color: white;
+    border-radius: 999px;
+    padding: 7px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.notification i{
+    color: #8EDAFC;
+}
+.notification p{
+    width: max-content;
+    font-size: 14px;
+}
+.notification p:last-child{
+    text-decoration: underline;
+    color: #B1B1B1;
+    font-size: 12px;
+    cursor: pointer;
+}
+/* end notification */
+
+/* search chat */
+.search-chat{
+   display: flex;
+   align-items: center;
+   height: 50px;
+}
+.search-chat input{
+    width: 100%;
+    border: none;
+    outline: none;
+}
+.search-chat i{
+    color: #B1B1B1;
+    font-size: 20px;
+    padding: 7px 20px;
+}
+/* end search chat */
+
+/* contact list */
+.contact-list{
+    height: 100%;
+    overflow-y: scroll;
+}
+.contact-list .single-contact{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.contact-list .single-contact:hover{
+    background-color: #8EDAFC;
+}
+.contact-list img{
+    width: 75px;
+    border-radius: 999px;
+    padding: 10px;
+    cursor: pointer;
+}
+/* end contact list */
+/* end left part */
+
+/* right part */
+.right-part{
+    height: 100%;
+    width: 74%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+/* status bar */
+.status-bar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* left status bar */
+.status-bar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.left-status-bar{
+    display: flex;
+    align-items: center;
+}
+.status-bar img{
+    width: 75px;
+    border-radius: 999px;
+    padding: 10px;
+    cursor: pointer;
+}
+/* end left status bar */
+/* right status bar */
+.right-status-bar .icon-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 28px;
+    margin-right: 25px;
+}
+.right-status-bar .icon-container i{
+    padding-left: 15px;
+    cursor: pointer;
+    color: #B1B1B1;
+}
+/* end right status bar */
+/* status bar */
+
+/* messages */
+.messages-container{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background-image: url("../img/mine.jpg");
+}
+.messages .message.received{
+    background-color: white;
+    float: left;
+    clear: both;
+}
+.messages .message.sent{
+    background-color: #D5F9BA;
+    float: right;
+    clear: both;
+}
+/* each message */
+.messages{
+    margin: 15px;
+}
+.messages .single-message{
+    position: relative;
+    margin: 5px 0;
+    padding: 10px;
+    min-width: 40%;
+    max-width: 60%;
+    border-radius: 10px;
+    font-size: 15px;
+    word-break: break-all;
+}
+.date-message{
+    margin-top: 20px;
+    float: right;
+    font-size: 10px;
+}
+/* end each message */
+
+/* end messages */
+
+/* bottom */
+.bottom{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #F3EEEA;
+}
+.bottom .input-message{
+    width: 80%;
+    height: 75%;
+    padding: 0 10px;
+}
+.bottom .input-message input{
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    border: none;
+}
+.bottom .icon-container{ 
+    margin: 0 auto;
+}
+.bottom .icon-container i{ 
+    font-size: 24px;
+    cursor: pointer;
+    color: #B1B1B1;
+}
+/* end bottom */
+/* end right part */

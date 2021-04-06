@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolzapp</title>
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- vue js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous"/>
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Vue app container -->
+    <div id="app">
+
+        <!-- background -->
+        <div class="background-green"></div>
+        <div class="background-grey"></div>
+        <!-- end background -->
+
+        <!-- page container  -->
+        <div class="page-container">
+
+            <div class="left-part">
+
+                <!-- profile bar-->
+                <div class="profile-bar">
+                    <div class="user">
+                        <div class="img container">
+                            <img src="img/avatar_io.jpg" alt="#">
+                        </div>
+                        <h4>Nome Utente</h4>
+                    </div>
+                    
+                    <div class="icon-container">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <!-- end profile bar-->
+
+                <!-- notification-->
+                <div class="notification">
+                    <div class="icon-container">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    <div>
+                        <p>Ricevi notifiche di nuovi messaggi</p>
+                        <p>Attiva notifiche desktop</p>
+                    </div> 
+                </div>
+                <!-- end notification-->
+
+                <!-- search -->
+                <div class="search-chat">
+                    <div class="icon-container">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="nameContact" @keyup="contactSearch()"/>
+                </div>
+                <!-- end search -->
+
+                <!-- contacts -->
+                <div class="contact-list">
+                    <div v-for="(item, index) in contacts" class="single-contact" v-if="item.visible" @click="openConversastion(index)">
+                        <div class="img-avatar-container">
+                            <img :src="item.avatar" alt="#">
+                        </div>
+                        <p>{{item.name}}</p>
+                    </div>
+                </div>
+                <!-- end contacts -->
+
+            </div>
+            <!-- end left part -->
+
+            <!-- right part -->
+            <div class="right-part">
+                <!-- status bar -->
+                <div class="status-bar">
+                    <div class="left-status-bar">
+                        <div class="img-container">
+                            <img :src="contacts[activeIndex].avatar" alt="#">
+                        </div>
+                        <div class="data">
+                            <h4>{{contacts[activeIndex].name}}</h4>
+                            <p>Ultimo accesso: {{contactLastDate(activeIndex)}}</p>
+                        </div>
+                        
+                    </div>
+                    <div class="right-status-bar">
+                        <div class="icon-container">
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-paperclip"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- end status bar -->
+
+                <!-- messages-->
+                <div class="messages-container">
+                    <div class="messages">
+                        <div v-for="message in contacts[activeIndex].messages"
+                        :class="'message ' + message.status" class="single-message">
+                            <span>{{message.text}}</span>
+                            <span class="date-message">{{message.date}}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- end messages-->
+
+                <!-- bottom -->
+                <div class="bottom">
+                    <div class="bottom">
+                        <div class="icon-container">
+                            <i class="far fa-smile"></i>
+                        </div>
+                        <div class="input-message">
+                            <input type="text" placeholder="Scrivi un messaggio" v-model='userMessage' @keyup.enter="sendMessage">> 
+                        </div>
+                        <div class="icon-container">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- end bottom -->
+
+            </div>
+            <!-- end right part -->
+
+        </div>
+    </div>
+
+    <!-- js -->
+    <script src="js/script.js"></script>
+</body>
+</html>
